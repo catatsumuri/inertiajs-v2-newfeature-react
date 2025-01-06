@@ -19,7 +19,7 @@ class PartialReloadController extends Controller
 
         return Inertia::render('PartialReload', [
             'users' => $this->getUsers($companyId),
-            // 'users' => Inertia::lazy(fn() => $this->getUsers($companyId)),
+            // 'users' => Inertia::optional(fn() => $this->getUsers($companyId)),
             // 'companies' => $this->getCompany(),
             'companies' => fn () => $this->getCompany(),
             'selectedCompanyId' => $companyId,
