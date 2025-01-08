@@ -9,7 +9,7 @@ export default function DeferredProps({ users, stats }) {
     <DemoLayout
       header={
         <h2 className="text-xl font-semibold leading-tight text-gray-800">
-          Load When Visible Demo
+          DeferredProps Demo
         </h2>
       }
     >
