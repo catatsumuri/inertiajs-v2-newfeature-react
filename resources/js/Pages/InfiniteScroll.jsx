@@ -3,7 +3,6 @@ import { Head, WhenVisible } from '@inertiajs/react';
 import { ClipLoader } from 'react-spinners';
 
 export default function InfiniteScroll({ users, currentPage, lastPage }) {
-  const randomKey = Math.random().toString(36).substr(2, 9);
 
   return (
     <DemoLayout
@@ -40,19 +39,18 @@ export default function InfiniteScroll({ users, currentPage, lastPage }) {
           {currentPage < lastPage && (
             <WhenVisible
               always
-              key={randomKey}
-              fallback={
-                <div className="flex items-center justify-center py-6">
-                  <ClipLoader size={35} color={'#2563eb'} />
-                </div>
-              }
               params={{
                 data: {
                   page: currentPage + 1,
                 },
                 only: ['users', 'currentPage'],
+                preserveUrl: true,
               }}
-            ></WhenVisible>
+            >
+                <div className="flex items-center justify-center py-6">
+                  <ClipLoader size={35} color={'#2563eb'} />
+                </div>
+            </WhenVisible>
           )}
         </section>
       </div>
